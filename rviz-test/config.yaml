@@ -1,0 +1,33 @@
+# Title of this configuration file
+title: "RViz Test"
+# Tag that identifies this configuration file.
+tag: "rviz-test"
+# Description of this configuration file
+description: ""
+# Author of this configuration file
+author: ""
+
+# Extraction rules
+rules:
+
+  rviz-test:
+    plugin: "rbb_tools.plugins.rviz_recorder"
+    config:
+      rviz_file: 'rviz.rviz'
+      title: 'RViz Test'
+      width: 1000
+      height: 1200
+      text_x: 200
+      text_y: 30
+      font: 'helvetica.ttf'
+      splash_screen: 'grumpy-bug.png'
+    topic_matchers:
+      - type: "rbb_tools.extraction.matchers.AllTopicsMatchingRule"
+        config:
+
+  topic-info:
+    plugin: "rbb_tools.plugins.detailed_topic_info"
+    config:
+    topic_matchers:
+      - type: "rbb_tools.extraction.matchers.AllTopicsMatchingRule"
+        config:
