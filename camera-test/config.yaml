@@ -21,12 +21,12 @@ rules:
       - type: "rbb_tools.extraction.matchers.ExactMatchingRule"
         config:
           topics:
-            /cam0/image_raw: "sensor_msgs/CompressedImage"
+            /cam0/image_raw: "sensor_msgs/Image"
           remapping:
             /cam0/image_raw: "/image"
       - type: "rbb_tools.extraction.matchers.ExactMatchingRule"
         config:
           topics:
-            /cam1/image_raw: "sensor_msgs/CompressedImage"
+            /cam1/image_raw: "sensor_msgs/Image"
           remapping:
             /cam1/image_raw: "/image"
