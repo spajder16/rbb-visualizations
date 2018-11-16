@@ -1,0 +1,33 @@
+# Title of this configuration file
+title: "Simulation Test"
+# Tag that identifies this configuration file.
+tag: "sim-test"
+# Description of this configuration file
+description: ""
+# Author of this configuration file
+author: ""
+
+# Extraction rules
+rules:
+  time-series-imu:
+    plugin: "rbb_tools.plugins.time_series"
+    config:
+      topics:
+        /imu/gyroscope:
+          name: "Simulated Sine Wave"
+          series:
+            point.x:
+              label: "X"
+              default_color: "#FF0000"
+            point.y:
+              label: "Y"
+              default_color: "#00FF00"
+            point.z:
+              label: "Z"
+              default_color: "#0000FF"  
+  topic-info:
+    plugin: "rbb_tools.plugins.detailed_topic_info"
+    config:
+    topic_matchers:
+      - type: "rbb_tools.extraction.matchers.AllTopicsMatchingRule"
+        config:
