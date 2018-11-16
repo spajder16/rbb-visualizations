@@ -25,9 +25,6 @@ rules:
             point.z:
               label: "Z"
               default_color: "#0000FF"  
-  topic-info:
-    plugin: "rbb_tools.plugins.detailed_topic_info"
-    config:
     topic_matchers:
       - type: "rbb_tools.extraction.matchers.AllTopicsMatchingRule"
         config:
