@@ -136,8 +136,12 @@ rules:
       font: 'helvetica.ttf'
       splash_screen: 'grumpy-bug.png'
     topic_matchers:
-      - type: "rbb_tools.extraction.matchers.AllTopicsMatchingRule"
+      - type: "rbb_tools.extraction.matchers.ExactMatchingRule"
         config:
+          topics:
+            /fssim/cmd: "*"
+
+
 
 
 
