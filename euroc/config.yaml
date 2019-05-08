@@ -69,17 +69,17 @@ rules:
           name: "Optical Speed Sensor"
           # Series are the message fields to record
           series:
-            linear.x:
+            twist.linear.x:
               default_color: "#FF0000"
-            linear.y:
+            twist.linear.y:
               default_color: "#00FF00"
-            linear.z:
+            twist.linear.z:
               default_color: "#0000FF"   
-            angular.x:
+            twist.angular.x:
               default_color: "#FF9090"
-            angular.y:
+            twist.angular.y:
               default_color: "#90FF90"
-            angular.z:
+            twist.angular.z:
               default_color: "#9090FF"  
         /wheel_rpm:
           name: "Wheel Speeds"
