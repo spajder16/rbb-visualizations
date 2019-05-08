@@ -73,8 +73,10 @@ rules:
             Fx:
               default_color: "#0000FF"
     topic_matchers:
-      - type: "rbb_tools.extraction.matchers.AllTopicsMatchingRule"
+      - type: "rbb_tools.extraction.matchers.ExactMatchingRule"
         config:
+          topics:
+            /fssim/cmd: "*"
   
   matplotlib-rule:
     plugin: "rbb_tools.plugins.matplotlib_plotter"

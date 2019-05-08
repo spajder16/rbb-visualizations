@@ -26,5 +26,7 @@ rules:
               label: "Z"
               default_color: "#0000FF"  
     topic_matchers:
-      - type: "rbb_tools.extraction.matchers.AllTopicsMatchingRule"
+      - type: "rbb_tools.extraction.matchers.ExactMatchingRule"
         config:
+          topics:
+            /imu/gyroscope: "*"
