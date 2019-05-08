@@ -1,0 +1,18 @@
+# Title of this configuration file
+title: "Topic Info"
+# Tag that identifies this configuration file.
+tag: "topic-info"
+# Description of this configuration file
+description: "Topic info as a separate file, because this never changes"
+# Author of this configuration file
+author: ""
+
+# Extraction rules
+rules:
+  topic-info:
+    plugin: "rbb_tools.plugins.detailed_topic_info"
+    config:
+    topic_matchers:
+      - type: "rbb_tools.extraction.matchers.AllTopicsMatchingRule"
+        config:
+

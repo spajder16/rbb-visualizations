@@ -1,0 +1,146 @@
+# Title of this configuration file
+title: "Euroc IMU and groundtruth"
+# Tag that identifies this configuration file.
+tag: "euroc-test"
+# Description of this configuration file
+description: ""
+# Author of this configuration file
+author: ""
+
+# Extraction rules
+rules:
+  time-series-car:
+    plugin: "rbb_tools.plugins.time_series"
+    config:
+      topics:
+        /imu0:
+          # Sub sampling goes here
+          name: "IMU"
+          # Series are the message fields to record
+          series:
+            linear_acceleration.x:
+              default_color: "#FF0000"
+            linear_acceleration.y:
+              default_color: "#00FF00"
+            linear_acceleration.z:
+              default_color: "#0000FF"   
+            angular_velocity.x:
+              default_color: "#FF9090"
+            angular_velocity.y:
+              default_color: "#90FF90"
+            angular_velocity.z:
+              default_color: "#9090FF"  
+        /fcu/imu:
+          # Sub sampling goes here
+          name: "Firefly IMU"
+          # Series are the message fields to record
+          series:
+            linear_acceleration.x:
+              default_color: "#FF0000"
+            linear_acceleration.y:
+              default_color: "#00FF00"
+            linear_acceleration.z:
+              default_color: "#0000FF"   
+            angular_velocity.x:
+              default_color: "#FF9090"
+            angular_velocity.y:
+              default_color: "#90FF90"
+            angular_velocity.z:
+              default_color: "#9090FF"  
+    topic_matchers:
+      - type: "rbb_tools.extraction.matchers.AllTopicsMatchingRule"
+        config:
+  
+  matplotlib-rule:
+    plugin: "rbb_tools.plugins.matplotlib_plotter"
+    config:
+      data:
+        # Leica
+        - name: "leica_x"
+          type: "raw"
+          topic: "/leica/position.point.x"
+        - name: "leica_y"
+          type: "raw"
+          topic: "/leica/position.point.y"
+        - name: "leica_z"
+          type: "raw"
+          topic: "/leica/position.point.z"
+
+        # Vicon
+        - name: "vicon_x"
+          type: "raw"
+          topic: "/vicon/firefly_sbx/firefly_sbx.transform.translation.x"
+        - name: "vicon_y"
+          type: "raw"
+          topic: "/vicon/firefly_sbx/firefly_sbx.transform.translation.y"
+        - name: "vicon_z"
+          type: "raw"
+          topic: "/vicon/firefly_sbx/firefly_sbx.transform.translation.z"
+
+
+      figures:
+        xy_plot:
+          title: "Truth XY"
+          xlabel: "X"
+          ylabel: "Y"
+          aspect: "equal"
+          legend: "best"
+          width: 1500
+          height: 1500
+          plots:
+            - type: "lineplot"
+              x: "leica_x"
+              y: "leica_y"
+              kwargs:
+                label: "Leica"
+            - type: "lineplot"
+              x: "vicon_x"
+              y: "vicon_y"
+              kwargs:
+                label: "VICON"
+        xz_plot:
+          title: "Truth XZ"
+          xlabel: "X"
+          ylabel: "Z"
+          aspect: "equal"
+          legend: "best"
+          width: 1500
+          height: 1500
+          plots:
+            - type: "lineplot"
+              x: "leica_x"
+              y: "leica_z"
+              kwargs:
+                label: "Leica"
+            - type: "lineplot"
+              x: "vicon_x"
+              y: "vicon_z"
+              kwargs:
+                label: "VICON"
+        yz_plot:
+          title: "Truth YZ"
+          xlabel: "Y"
+          ylabel: "Z"
+          aspect: "equal"
+          legend: "best"
+          width: 1500
+          height: 1500
+          plots:
+            - type: "lineplot"
+              x: "leica_y"
+              y: "leica_z"
+              kwargs:
+                label: "Leica"
+            - type: "lineplot"
+              x: "vicon_y"
+              y: "vicon_z"
+              kwargs:
+                label: "VICON"
+
+    topic_matchers:
+      - type: "rbb_tools.extraction.matchers.AllTopicsMatchingRule"
+        config:
+
+
+
+
