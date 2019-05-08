@@ -50,7 +50,7 @@ rules:
 
         /imu:
           # Sub sampling goes here
-          name: "Firefly IMU"
+          name: "IMU"
           # Series are the message fields to record
           series:
             linear_acceleration.x:
