@@ -82,7 +82,7 @@ rules:
             angular.z:
               default_color: "#9090FF"  
         /wheel_rpm:
-          name: "Optical Speed Sensor"
+          name: "Wheel Speeds"
           # Series are the message fields to record
           series:
             quaternion.x:
