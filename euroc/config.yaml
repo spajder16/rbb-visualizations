@@ -47,6 +47,52 @@ rules:
               default_color: "#90FF90"
             angular_velocity.z:
               default_color: "#9090FF"  
+
+        /imu:
+          # Sub sampling goes here
+          name: "Firefly IMU"
+          # Series are the message fields to record
+          series:
+            linear_acceleration.x:
+              default_color: "#FF0000"
+            linear_acceleration.y:
+              default_color: "#00FF00"
+            linear_acceleration.z:
+              default_color: "#0000FF"   
+            angular_velocity.x:
+              default_color: "#FF9090"
+            angular_velocity.y:
+              default_color: "#90FF90"
+            angular_velocity.z:
+              default_color: "#9090FF" 
+        /optical_speed_sensor:
+          name: "Optical Speed Sensor"
+          # Series are the message fields to record
+          series:
+            linear.x:
+              default_color: "#FF0000"
+            linear.y:
+              default_color: "#00FF00"
+            linear.z:
+              default_color: "#0000FF"   
+            angular.x:
+              default_color: "#FF9090"
+            angular.y:
+              default_color: "#90FF90"
+            angular.z:
+              default_color: "#9090FF"  
+        /wheel_rpm:
+          name: "Optical Speed Sensor"
+          # Series are the message fields to record
+          series:
+            quaternion.x:
+              default_color: "#FF0000"
+            quaternion.y:
+              default_color: "#00FF00"
+            quaternion.z:
+              default_color: "#0000FF"   
+            quaternion.w:
+              default_color: "#FFFF00"
     topic_matchers:
       - type: "rbb_tools.extraction.matchers.AllTopicsMatchingRule"
         config:
@@ -76,6 +122,14 @@ rules:
         - name: "vicon_z"
           type: "raw"
           topic: "/vicon/firefly_sbx/firefly_sbx.transform.translation.z"
+
+        # GPS
+        - name: "gps_lat"
+          type: "raw"
+          topic: "/gps.latitude"
+        - name: "gps_lon"
+          type: "raw"
+          topic: "/gps.longitude"
 
 
       figures:
@@ -136,6 +190,20 @@ rules:
               y: "vicon_z"
               kwargs:
                 label: "VICON"
+        latlon_plot:
+          title: "GPS latitude/longitude"
+          xlabel: "latitude"
+          ylabel: "longitude"
+          aspect: "equal"
+          legend: "best"
+          width: 1500
+          height: 1500
+          plots:
+            - type: "lineplot"
+              x: "gps_lat"
+              y: "gps_lon"
+              kwargs:
+                label: "GPS"
 
     topic_matchers:
       - type: "rbb_tools.extraction.matchers.AllTopicsMatchingRule"
