@@ -1,0 +1,25 @@
+# Title of this configuration file
+title: "Camera Test"
+# Tag that identifies this configuration file.
+tag: "camera-test"
+# Description of this configuration file
+description: ""
+# Author of this configuration file
+author: ""
+
+# Extraction rules
+rules:
+  raw-camera-output:
+    plugin: "rbb_tools.plugins.video_extractor"
+    config:
+      frame_rate: 20
+      frame_height: 800
+      frame_width: 848
+      text_x: 90
+      text_y: 5
+      - type: "rbb_tools.extraction.matchers.ExactMatchingRule"
+        config:
+          topics:
+            /t265/fisheye1/image_raw/compressed: "sensor_msgs/CompressedImage"
+          remapping:
+            /t265/fisheye1/image_raw/compressed: "/image"
