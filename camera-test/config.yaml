@@ -14,7 +14,7 @@ rules:
     config:
       frame_rate: 20
       frame_height: 480
-      frame_width: 752
+      frame_width: 640
       text_x: 90
       text_y: 5
     topic_matchers:
