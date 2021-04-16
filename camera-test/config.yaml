@@ -21,12 +21,12 @@ rules:
       - type: "rbb_tools.extraction.matchers.ExactMatchingRule"
         config:
           topics:
-            /cam0/image_raw: "sensor_msgs/Image"
+            /d400/color/image_raw/compressed: "sensor_msgs/Image"
           remapping:
-            /cam0/image_raw: "/image"
+            /d400/color/image_raw/compressed: "/image"
       - type: "rbb_tools.extraction.matchers.ExactMatchingRule"
         config:
           topics:
-            /cam1/image_raw: "sensor_msgs/Image"
+            /t265/fisheye1/image_raw/compressed: "sensor_msgs/Image"
           remapping:
-            /cam1/image_raw: "/image"
+            /t265/fisheye1/image_raw/compressed: "/image"
