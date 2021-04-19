@@ -12,6 +12,7 @@ rules:
   raw-camera-output:
     plugin: "rbb_tools.plugins.video_extractor"
     config:
+      frame_rate: 30
       frame_height: 480
       frame_width: 640
       text_x: 90
